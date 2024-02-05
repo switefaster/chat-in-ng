@@ -44,10 +44,8 @@ jobs:
         run: yarn install # Change this to npm, yarn or pnpm.
 
       - name: Clone ng-server
-        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
-        with:
-          owner: 'switefaster'
-          repository: 'ng-server'
+        working-directory: ../
+        run: git clone https://github.com/switefaster/ng-server.git
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
