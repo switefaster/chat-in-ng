@@ -1,21 +1,27 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import { internalIpV4 } from "internal-ip";
 
-// https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [vue()],
-
-  // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  //
-  // 1. prevent vite from obscuring rust errors
   clearScreen: false,
-  // 2. tauri expects a fixed port, fail if that port is not available
   server: {
-    port: 1420,
+    host: '0.0.0.0',
+    port: 5173,
     strictPort: true,
     watch: {
-      // 3. tell vite to ignore watching `src-tauri`
-      ignored: ["**/src-tauri/**"],
+      ignored: ["**/src-tauri/**"]
     },
+    hmr: {
+      protocol: 'ws',
+      host: await internalIpV4(),
+      port: 5183,
+    },
+  },
+  envPrefix: ['VITE_', 'TAURI_'],
+  build: {
+    target: ['es2021', 'chrome100', 'safari13'],
+    minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
+    sourcemap: !!process.env.TAURI_DEBUG,
   },
 }));

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue'
-import { invoke } from '@tauri-apps/api'
+import { invoke } from '@tauri-apps/api/core'
 import { useRouter } from 'vue-router'
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';

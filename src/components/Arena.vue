@@ -13,7 +13,7 @@ import Dialog from 'primevue/dialog';
 import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast'
 import { ref, Ref, computed } from 'vue'
-import { invoke } from '@tauri-apps/api'
+import { invoke } from '@tauri-apps/api/core'
 import { listen } from '@tauri-apps/api/event';
 
 type GameState = 'Joining' | 'Assigning' | 'Fighting';

@@ -10,7 +10,7 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.5.2",
+    "@tauri-apps/api": "^2.0.0-beta.0",
     "material-symbols": "^0.14.6",
     "primeflex": "^3.3.1",
     "primeicons": "^6.0.1",
@@ -19,8 +19,9 @@
     "vue-router": "v4"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.5.8",
+    "@tauri-apps/cli": "^2.0.0-beta.1",
     "@vitejs/plugin-vue": "^4.2.3",
+    "internal-ip": "^8.0.0",
     "typescript": "^5.0.2",
     "vite": "^5.0.0",
     "vue-tsc": "^1.8.5"
